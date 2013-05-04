@@ -44,8 +44,7 @@ try:
     while(True):
         if time.time() - last_check >= 15:
             c = api.get_departures(9301)
-            s = ", ".join(c[1].split(',')[0:2])
-            s2 = ", ".join("".join(c[3]).split(',')[0:2])
+            s2 = "".join(c[3]).split(',')[0]
             last_check = time.time()
             try:
                 f.close()
@@ -53,9 +52,9 @@ try:
                 pass
             f = open('yw', 'r')
         d.display_text_on_line(1, c[0], False, TextAlignment.LEFT, col)
-        d.display_text_on_line(2, "".join(s), False, TextAlignment.LEFT, col)
+        d.display_text_on_line(2, "".join(c[1]), False, TextAlignment.LEFT, col)
         d.display_text_on_line(3, c[2], False, TextAlignment.LEFT, col)
-        d.display_text_on_line(4, "".join(s2), False, TextAlignment.LEFT, col)
+        d.display_text_on_line(4, s2, False, TextAlignment.LEFT, col)
         d.display_text_on_line(6, f.read(), False, TextAlignment.CENTRE, TextColours.CYAN)
         f.seek(0)
 #        c[1].rotate(-1)
