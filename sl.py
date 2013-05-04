@@ -41,7 +41,7 @@ col = TextColours.ORANGE
 try:
     api = SLAPI('http://www1.sl.se/realtidws/RealTimeService.asmx?wsdl')
     last_check = 0
-    r = re.compile(r'([^ ]+ [0-9]{2}(:[0-9]{2}|.{4}))')
+    r = re.compile(r'([^ ]+ ([0-9]{2}:[0-9]{2}|[0-9]{1,2} min))') 
     while(True):
         if time.time() - last_check >= 15:
             c = api.get_departures(9301)
