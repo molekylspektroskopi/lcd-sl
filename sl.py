@@ -27,9 +27,9 @@ class SLAPI(object):
             else:
                 ret.append(re.sub(' +', ' ', unicode(re.sub('11  (A|K)', '\\1', metro.DisplayRow1) + " ")))
             if metro.DisplayRow2 is None:
-                ret.append(deque(" No Update "))
+                ret.append(" No Update ")
             else:
-                ret.append(deque(re.sub(' +', ' ', unicode(re.sub('11 (A|K)', '\\1', metro.DisplayRow2) + " "))))
+                ret.append(re.sub(' +', ' ', unicode(re.sub('11 (A|K)', '\\1', metro.DisplayRow2) + " ")))
         return ret
 d = LCDSysInfo()
 d.clear_lines(TextLines.ALL, BackgroundColours.BLACK)
@@ -45,12 +45,12 @@ try:
     while(True):
         if time.time() - last_check >= 15:
             c = api.get_departures(9301)
-            m = re.match(r, "".join(c[1]))
+            m = re.match(r, c[1])
             if m:
                 s1 = m.group(0)
             else:
                 s1 = ""
-            m = re.match(r, "".join(c[3]))
+            m = re.match(r, c[3])
             if m:
                 s2 = m.group(0)
             else:
