@@ -50,11 +50,13 @@ try:
                 s1 = m.group(0)
             else:
                 s1 = ""
+                print c[1]
             m = re.match(r, c[3])
             if m:
                 s2 = m.group(0)
             else:
                 s2 = ""
+                print c[3]
             last_check = time.time()
             try:
                 f.close()
