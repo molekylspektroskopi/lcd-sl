@@ -60,12 +60,13 @@ try:
             except:
                 pass
             f = open('yw', 'r')
+            yw = f.read()
+            f.close()
         d.display_text_on_line(1, c[0], False, TextAlignment.LEFT, TextColours.ORANGE)
         d.display_text_on_line(2, s1, False, TextAlignment.LEFT, TextColours.ORANGE)
         d.display_text_on_line(3, c[2], False, TextAlignment.LEFT, TextColours.ORANGE)
         d.display_text_on_line(4, s2, False, TextAlignment.LEFT, TextColours.ORANGE)
-        d.display_text_on_line(6, f.read(), False, TextAlignment.CENTRE, TextColours.CYAN)
-        f.seek(0)
+        d.display_text_on_line(6, yw, False, TextAlignment.CENTRE, TextColours.CYAN)
 #        c[1].rotate(-1)
 #        c[3].rotate(-1)
         sleep(0.05)
